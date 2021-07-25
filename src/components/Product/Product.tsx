@@ -1,19 +1,28 @@
 // @flow
 
-import {Grid, Paper } from '@material-ui/core';
+import {Button, Grid} from '@material-ui/core';
 import * as React from 'react';
+import {addItemToCard, ItemType} from "../../bll/card-reduxer";
+import {useDispatch} from "react-redux";
 
 type Props = {
-    item: { id: string, name: string, picUrl: string, priceRub: number,text:string }
+    item: ItemType
 };
-export const Product:React.FC<Props> = ({item}) => {
+export const Product: React.FC<Props> = ({item}) => {
+const dispatch = useDispatch()
+    const addItem = ()=>{
+    dispatch(addItemToCard( {item}))
+    }
+
     return (
-      <Grid container justify={'space-evenly'} direction={'column'} alignItems={"center"}  style={{width:200,height:300,gap:20,backgroundColor:'#ffe6f2' } } >
+        <Grid container justify={ 'space-around' } direction={ 'column' } alignItems={ "center" }
+              style={ {width: 200, height: "max-content", gap: 20, backgroundColor: '#ffe6f2', paddingBottom: 15, paddingTop: 15} }>
             <img src={ item.picUrl || "https://via.placeholder.com/150" } alt="img"/>
             <h3>{ item.name }</h3>
             <h5>{ item.text }</h5>
-            <span>{ item.priceRub }</span>
-            </Grid>
+            <span>{ item.priceRub } $</span>
+            <Button onClick={addItem} color={ 'secondary' } variant={ "contained" }>add to card</Button>
+        </Grid>
 
     );
 };

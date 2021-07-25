@@ -1,13 +1,12 @@
 // @flow
 import * as React from 'react';
 import {Box, Button, Container, Grid} from "@material-ui/core";
-import {useContext} from "react";
-import {Context} from "../../index";
 import firebase from "firebase";
 
 type Props = {};
 export const Login: React.FC<Props> = () => {
-    const {auth} = useContext(Context)
+    const auth = firebase.auth()
+
 
     const login =async ()=> {
         const provider = new firebase.auth.GoogleAuthProvider()
