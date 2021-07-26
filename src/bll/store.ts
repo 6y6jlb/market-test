@@ -3,6 +3,11 @@ import {configureStore} from '@reduxjs/toolkit'
 import {slice as card} from "./card-reduxer";
 import { firebaseReducer } from "react-redux-firebase";
 import firebase from "firebase";
+import {loadState, saveState} from "../utils/localStorage";
+import { reducer as formReducer } from 'redux-form';
+
+
+
 
 
 // react-redux-firebase config
@@ -26,18 +31,38 @@ firebase.initializeApp ( firebaseConfig )
 
 export const rootReducer = combineReducers ( {
     firebase: firebaseReducer,
-    card: card.reducer
+    card: card.reducer,
+    form: formReducer
 } )
 
 export type RootReducerType = typeof rootReducer
 export type AppRootStateType = ReturnType<RootReducerType>
 
-export const store = configureStore ( {
+
+
+
+/*export const store = configureStore ( {
+
     reducer: rootReducer,
-    middleware: getDefaultMiddleware => getDefaultMiddleware ()
-} )
+    middleware: getDefaultMiddleware => getDefaultMiddleware (),
 
 
+})*/
+export const store = configureAppStore(loadState())
+
+
+export default function configureAppStore(preloadedState:AppRootStateType) {
+    const store = configureStore({
+        reducer: rootReducer,
+        middleware: getDefaultMiddleware => getDefaultMiddleware (),
+        preloadedState,
+    })
+    return store
+}
+
+store.subscribe ( () => (
+    saveState(store.getState())
+) )
 
 // а это, чтобы можно было в консоли браузера обращаться к store в любой момент
 // @ts-ignore

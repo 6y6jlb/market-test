@@ -6,6 +6,7 @@ import {BrowserRouter} from "react-router-dom";
 import AppRoute from "../AppRoute/AppRoute";
 import {useAuthState} from "react-firebase-hooks/auth";
 import firebase from "firebase";
+import {loadState} from "../../utils/localStorage";
 
 function App() {
 
@@ -14,7 +15,7 @@ function App() {
     const auth = firebase.auth()
     const [user,loading,error] = useAuthState ( auth )
 
-
+    loadState()
 
     return (
         <BrowserRouter>

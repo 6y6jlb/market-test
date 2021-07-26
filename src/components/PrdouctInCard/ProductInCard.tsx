@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import {Grid} from "@material-ui/core";
-import {addItemToCard, ItemInCardType} from "../../bll/card-reduxer";
+import {addItemToCard, deleteItemFromCard, ItemInCardType} from "../../bll/card-reduxer";
 import {useDispatch} from "react-redux";
 
 type Props = {
@@ -12,8 +12,10 @@ export const ProductInCard: React.FC<Props> = ({item}) => {
     const dispatch = useDispatch()
 
     const addItem = () =>{
-        //@ts-ignore
-        dispatch(addItemToCard(item))
+        dispatch(addItemToCard( {item}))
+    }
+    const deleteItem = () => {
+        dispatch(deleteItemFromCard( {item}))
     }
 
     return (
@@ -29,7 +31,7 @@ export const ProductInCard: React.FC<Props> = ({item}) => {
             <Grid container direction={ "column" } alignItems={ "center" } style={ {width: 15} }>
                 <div onClick={addItem} style={ {cursor:'pointer',textAlign: "center", width: '15px', backgroundColor: "white"} }>+</div>
                 <div> { item.count }</div>
-                <div style={ {cursor:'pointer',textAlign: "center", width: '15px', backgroundColor: "white"} }>-</div>
+                <div onClick={deleteItem} style={ {cursor:'pointer',textAlign: "center", width: '15px', backgroundColor: "white"} }>-</div>
             </Grid>
         </Grid>
 

@@ -30,6 +30,9 @@ export const slice = createSlice ( {
         cardStore: [] as Array<ItemInCardType>
     },
     reducers: {
+        setItemsToCard(state, action: PayloadAction<{ items: Array<ItemInCardType> }>) {
+            state.cardStore = action.payload.items
+        },
         openModalCard(state, action: PayloadAction<{ value: boolean }>) {
             state.isModalOpen = action.payload.value
         },
@@ -48,11 +51,19 @@ export const slice = createSlice ( {
                 count: 1
             } ) : state.cardStore
         },
-        deleteItemFromCard(state, action: PayloadAction<{ item: ItemType }>) {
-            state.cardStore = state.cardStore.filter ( c => c.id !== action.payload.item.id )
+        deleteItemFromCard(state, action: PayloadAction<{ item: ItemInCardType }>) {
+            if (action.payload.item.count<2) {
+                state.cardStore = state.cardStore.filter ( c => c.id !== action.payload.item.id )
+            } else {
+                state.cardStore.map ( c => {
+                    if (c.id === action.payload.item.id) {
+                        return {...c,count:c.count--}
+                    }
+                } )
+            }
         },
     },
     extraReducers: builder => {
     }
 } )
-export const {openModalCard, addItemToCard, deleteItemFromCard} = slice.actions
+export const {openModalCard, addItemToCard, deleteItemFromCard,setItemsToCard} = slice.actions
