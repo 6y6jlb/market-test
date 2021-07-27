@@ -6,12 +6,17 @@ import {AppRootStateType} from "../../bll/store";
 import {ItemInCardType} from "../../bll/card-reduxer";
 import {ProductInCard} from "../PrdouctInCard/ProductInCard";
 import {calcTotalPrice} from "../../utils/utils-functions";
+import OrderForm, {OrderFormType} from "../OrderForm/OrderForm";
 
 type Props = {};
 export const Card: React.FC<Props> = () => {
     const cardStore = useSelector<AppRootStateType, Array<ItemInCardType>> ( state => state.card.cardStore )
 
     const totalPrice = calcTotalPrice ( cardStore )
+
+    const onsubmitOrderForm = (data:OrderFormType) => {
+        console.log (data)
+    }
 
     return (
         <Grid container alignItems={ "center" } justify={ "space-around" } style={ {
@@ -39,25 +44,7 @@ export const Card: React.FC<Props> = () => {
                     width: 'max-content'
                 } }>total price: { totalPrice }</div> }
             </Grid>
-            <FormControl  variant={ "standard" } style={ {backgroundColor: 'rgb(255, 230, 242)', padding: '20px',height:'100%'} }>
-                <>
-                    <Input id="name" aria-describedby="name-helper-text"/>
-                    <FormHelperText id="name-helper-text">john</FormHelperText>
-                </>
-                <>
-                    <Input id="surname" aria-describedby="surname-helper-text"/>
-                    <FormHelperText id="surname-helper-text">Smith</FormHelperText>
-                </>
-                <>
-                    <Input id="address" aria-describedby="address-helper-text"/>
-                    <FormHelperText id="address-helper-text">We'll never share address.</FormHelperText>
-                </>
-                <>
-                    <Input id="phone" aria-describedby="phone-helper-text"/>
-                    <FormHelperText id="phone-helper-text">We'll never share your phone.</FormHelperText>
-                </>
-                <Button>order</Button>
-            </FormControl>
+            <OrderForm onSubmit={onsubmitOrderForm}/>
         </Grid>
     );
 };

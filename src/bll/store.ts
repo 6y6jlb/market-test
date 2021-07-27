@@ -12,12 +12,14 @@ import { reducer as formReducer } from 'redux-form';
 
 // react-redux-firebase config
 const firebaseConfig = {
-    apiKey: "AIzaSyCZi4YI7VP4jHaVQdudRlNbwx1FGtPeBSo",
-    authDomain: "chat-firebase-react-typescript.firebaseapp.com",
-    projectId: "chat-firebase-react-typescript",
-    storageBucket: "chat-firebase-react-typescript.appspot.com",
-    messagingSenderId: "925417681230",
-    appId: "1:925417681230:web:b326e0e52f353428056e1f"
+    apiKey: "AIzaSyAfmzi7dTBc9A7d_ROmo2Xgdl6C3QQPAXQ",
+    authDomain: "market-f78b4.firebaseapp.com",
+    databaseURL: "https://market-f78b4-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "market-f78b4",
+    storageBucket: "market-f78b4.appspot.com",
+    messagingSenderId: "286699750905",
+    appId: "1:286699750905:web:532866cbeecd66c5b66928",
+    measurementId: "G-ZD3X9M150B"
 };
 
 // react-redux-firebase config

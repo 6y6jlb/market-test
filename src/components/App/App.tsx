@@ -14,6 +14,8 @@ function App() {
 
     const auth = firebase.auth()
     const [user,loading,error] = useAuthState ( auth )
+    const data = firebase.database()
+    console.log (data)
 
     loadState()
 
