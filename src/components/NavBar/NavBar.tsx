@@ -49,8 +49,8 @@ export const NavBar: React.FC<Props> = () => {
                         <NavLink to={ LOGIN_ROUTE }>< Button variant={ 'outlined' }>Login</Button></NavLink>
                     }
                 </Grid>
-                {totalPrice>0&&<div style={ {position:"relative",right:-98,bottom:-10,fontSize:'0.8em',color:"black",zIndex:1,width:'100px'} }>$ {totalPrice}</div>}
-                <Button style={ {backgroundColor: 'rgb(255, 230, 242)',position:"relative"} } size={ 'large' } onClick={ () => {
+                {totalPrice>0&&<div style={ {position:"relative",right:-100,bottom:-10,fontSize:'0.8em',color:"black",zIndex:1,width:'100px'} }> {totalPrice} rub</div>}
+                <Button style={ {backgroundColor: 'rgb(255, 230, 242)'} } size={ 'large' } onClick={ () => {
                     dispatch ( openModalCard ( {value: true} ) )
                 } } variant={ 'outlined' }>card</Button>
             </Toolbar>

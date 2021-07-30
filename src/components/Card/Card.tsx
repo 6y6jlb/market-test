@@ -19,8 +19,10 @@ export const Card: React.FC<Props> = () => {
     }
 
     return (
-        <Grid container alignItems={ "center" } justify={ "space-around" } style={ {
+        <Grid container alignItems={ "center" } justify={ "space-evenly" } style={ {
             position: 'fixed',
+            paddingTop:10,
+            paddingBottom:10,
             top: '10%',
             left: window.innerWidth / 2 - 300,
             width: 600,
@@ -31,20 +33,18 @@ export const Card: React.FC<Props> = () => {
             backgroundColor: 'white',
             height:'max-content'
         } }>
-            <Grid container direction={ "column" } justifyContent={ "space-around" } justify={ "space-around" }
-                  style={ {paddingTop: 15,paddingBottom: 15, gap: 5, width: "max-content", minHeight: 320} }>
-                { cardStore.map ( c => <ProductInCard item={ c }/> ) }
-                { totalPrice > 0 && <div style={ {
-                    position: "relative",
-                    right: -98,
-                    bottom: -10,
-                    fontSize: '1.2em',
-                    color: "black",
-                    zIndex: 1,
-                    width: 'max-content'
-                } }>total price: { totalPrice }</div> }
+            <Grid container direction={ "column" } alignItems={"center"}
+                  style={ { gap: 8, width: "300px", minHeight: 320} }>
+                { cardStore.map ( c => <ProductInCard key={c.id} item={ c }/> ) }
+
             </Grid>
             <OrderForm onSubmit={onsubmitOrderForm}/>
+            { totalPrice > 0 && <div style={ {
+                fontSize: '1.2em',
+                color: "black",
+                zIndex: 1,
+                width: 'max-content'
+            } }>total price: { totalPrice }</div> }
         </Grid>
     );
 };
