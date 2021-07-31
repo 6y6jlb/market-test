@@ -44,7 +44,8 @@ export const Card: React.FC<Props> = () => {
                 color: "black",
                 zIndex: 1,
                 width: 'max-content'
-            } }>total price: { totalPrice }</div> }
+            } }> total price: { totalPrice } rub</div> }
+            <Button size={"small"} variant={"contained"}> clear the bucket</Button>
         </Grid>
     );
 };

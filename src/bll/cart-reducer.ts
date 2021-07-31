@@ -24,14 +24,12 @@ export const slice = createSlice ( {
             state.store = []
         },
         setItemsFromFirebase(state, action: PayloadAction<{ items: Array<ItemFromFireBaseType> }>) {
-
             const newState = action.payload.items.map ( i => {
                 return {name: i.name, id: i.id, picUrl: '', priceRub: i.price * 100, text: i.description}
             } )
             state.store = newState
         },
         setItemFromFirebase(state, action: PayloadAction<{ item: ItemFromFireBaseType }>) {
-            console.log (action.payload.item)
             const newProduct = {
                 name: action.payload.item.name,
                 id: action.payload.item.id,
@@ -73,6 +71,10 @@ export const slice = createSlice ( {
                 } )
             }
         },
+        deleteAllItemFromCard(state) {
+            state.cardStore = []
+        },
+
     },
     extraReducers: builder => {
     }
@@ -84,5 +86,6 @@ export const {
     setItemsToCard,
     setItemsFromFirebase,
     setItemFromFirebase,
-    setEmptyStore
+    setEmptyStore,
+    deleteAllItemFromCard
 } = slice.actions
