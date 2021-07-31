@@ -12,7 +12,6 @@ type Props = {};
 export const Goods: React.FC<Props> = () => {
 
     const goods = useSelector<AppRootStateType, Array<ItemType>> ( state => state.products.store )
-
     const products = goods.map ( item => {
         return <Product key={ item.id } item={ item }/>
     } )
@@ -22,7 +21,7 @@ export const Goods: React.FC<Props> = () => {
 
         <Container>
             <Grid container alignContent={ 'space-between' } justify={ "space-evenly" }
-                  style={ {height: window.innerHeight - 30, gap: 50, marginTop: 30} }>
+                  style={ {height: window.innerHeight - 30, gap:50, marginTop: 30} }>
 
                 { products }
 

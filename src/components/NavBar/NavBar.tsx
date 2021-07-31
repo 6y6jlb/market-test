@@ -12,13 +12,12 @@ import {Cart} from '../Cart/Cart';
 import {ItemInCardType, openModalCard} from "../../bll/cart-reducer";
 
 type Props = {};
-export const NavBar: React.FC<Props> = () => {
+export const NavBar: React.FC<Props> = React.memo(() => {
     const isModalOpen = useSelector<AppRootStateType, boolean> ( state => state.card.isModalOpen )
     const cardStore = useSelector<AppRootStateType, Array<ItemInCardType>> ( state => state.card.cardStore )
     const dispatch = useDispatch ()
     const auth = firebase.auth ()
     const [user, loading, error] = useAuthState ( auth )
-
     const openModalCartWindow = () => {
         dispatch ( openModalCard ( {value: true} ) )
     }
@@ -57,9 +56,10 @@ export const NavBar: React.FC<Props> = () => {
                     zIndex: 1,
                     width: '100px'
                 } }> { totalPrice } rub</div> }
-                <Button disabled={cardStore.length<1} style={ {backgroundColor: 'rgb(255, 230, 242)'} } size={ 'large' }
+                <Button disabled={ cardStore.length < 1 } style={ {backgroundColor: 'rgb(255, 230, 242)'} }
+                        size={ 'large' }
                         onClick={ openModalCartWindow } variant={ 'outlined' }>cart</Button>
             </Toolbar>
         </AppBar>
     );
-};
+});
