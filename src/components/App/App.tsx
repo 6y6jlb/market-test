@@ -6,16 +6,20 @@ import {BrowserRouter} from "react-router-dom";
 import AppRoute from "../AppRoute/AppRoute";
 import {useAuthState} from "react-firebase-hooks/auth";
 import firebase from "firebase";
-
 import {useDispatch} from "react-redux";
 import {setEmptyStore, setItemFromFirebase} from "../../bll/products-reducer";
 
+
+
+
 function App() {
+
     //loadState ()
     const dispatch = useDispatch ()
     const auth = firebase.auth ()
     const [user, loading, error] = useAuthState ( auth )
     const ref = firebase.database ().ref ( 'goods/' )
+
 
     const setEmptyStoreCallback = () => {
         dispatch ( setEmptyStore () )

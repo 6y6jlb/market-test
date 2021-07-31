@@ -1,14 +1,24 @@
 // @flow
 import * as React from 'react';
-import {Grid} from "@material-ui/core";
+import {Grid, makeStyles} from "@material-ui/core";
 import {useDispatch} from "react-redux";
 import {addItemToCard, deleteItemFromCard, ItemInCardType} from '../../bll/cart-reducer';
+
+
+const useStyles = makeStyles({
+    productRoot: {width: 300, height: "max-content", backgroundColor: '#ffe6f2'},
+    imgInProduct:{width: 75, height: 75},
+    textBlock:{gap: 5, width: 200, position: 'relative'},
+    incrementDecrementButton:{cursor:'pointer',textAlign: "center", width: '15px', backgroundColor: "white"}
+});
+
 
 type Props = {
     item: ItemInCardType
 
 };
 export const ProductInCard: React.FC<Props> = ({item}) => {
+    const classes = useStyles();
     const dispatch = useDispatch()
 
     const addItem = () =>{
@@ -21,17 +31,17 @@ export const ProductInCard: React.FC<Props> = ({item}) => {
     return (
         <Grid container justifyContent={ "space-around" } direction={ 'row' }
               alignItems={ "flex-start" }
-              style={ {width: 300, height: "max-content", backgroundColor: '#ffe6f2'} }>
-            <img style={ {width: 75, height: 75} } src={ item.picUrl || "https://via.placeholder.com/150" } alt="img"/>
-            <Grid container direction={ 'column' } style={ {gap: 5, width: 200, position: 'relative'} }>
+              className={classes.productRoot}>
+            <img className={classes.imgInProduct}src={ item.picUrl || "https://via.placeholder.com/150" } alt="img"/>
+            <Grid container direction={ 'column' } className={classes.textBlock}>
                 <h4>{ item.name }</h4>
-                <h5 style={ {} }>{ item.text }</h5>
+                <h5 >{ item.text }</h5>
                 <span>{ item.priceRub }</span>
             </Grid>
             <Grid container direction={ "column" } alignItems={ "center" } style={ {width: 15} }>
-                <div onClick={addItem} style={ {cursor:'pointer',textAlign: "center", width: '15px', backgroundColor: "white"} }>+</div>
+                <div onClick={addItem} className={classes.incrementDecrementButton}>+</div>
                 <div> { item.count }</div>
-                <div onClick={deleteItem} style={ {cursor:'pointer',textAlign: "center", width: '15px', backgroundColor: "white"} }>-</div>
+                <div onClick={deleteItem} className={classes.incrementDecrementButton}>-</div>
             </Grid>
         </Grid>
 
