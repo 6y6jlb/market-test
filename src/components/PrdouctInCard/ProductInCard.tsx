@@ -1,8 +1,8 @@
 // @flow
 import * as React from 'react';
 import {Grid} from "@material-ui/core";
-import {addItemToCard, deleteItemFromCard, ItemInCardType} from "../../bll/card-reduxer";
 import {useDispatch} from "react-redux";
+import {addItemToCard, deleteItemFromCard, ItemInCardType} from '../../bll/cart-reducer';
 
 type Props = {
     item: ItemInCardType

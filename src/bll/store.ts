@@ -1,6 +1,7 @@
 import {combineReducers} from "redux";
 import {configureStore} from '@reduxjs/toolkit'
-import {slice as card} from "./card-reduxer";
+import {slice as card} from "./cart-reducer";
+import {slice as products} from "./products-reducer";
 import { firebaseReducer } from "react-redux-firebase";
 import firebase from "firebase";
 import {loadState, saveState} from "../utils/localStorage";
@@ -34,6 +35,7 @@ firebase.initializeApp ( firebaseConfig )
 export const rootReducer = combineReducers ( {
     firebase: firebaseReducer,
     card: card.reducer,
+    products:products.reducer,
     form: formReducer
 } )
 

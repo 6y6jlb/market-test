@@ -1,7 +1,7 @@
 import React from 'react'
 import {Field, InjectedFormProps, reduxForm} from 'redux-form'
-import {Button, FormHelperText, TextField} from "@material-ui/core";
-import { renderTextField } from '../../utils/materialUiReduxFormUtilsComponentns';
+import {Button, FormHelperText} from "@material-ui/core";
+import {renderTextField} from '../../utils/materialUiReduxFormUtilsComponentns';
 
 
 interface PropsType {

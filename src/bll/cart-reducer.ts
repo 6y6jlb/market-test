@@ -1,44 +1,20 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit"
+import {ItemType} from "./products-reducer";
 
-export type ItemType = {
-    id: string, name: string, picUrl: string, priceRub: number, text: string
-}
+
 export type ItemInCardType = {
     id: string, name: string, picUrl: string, priceRub: number, text: string, count: number
 }
 
-export type ItemFromFireBaseType = {
-    id: string, name: string, price: number, description: string
-}
-const goods: Array<ItemType> = []
 
 export const slice = createSlice ( {
-    name: 'card',
+    name: 'cart',
     initialState: {
         isModalOpen: false,
-        store: goods,
         cardStore: [] as Array<ItemInCardType>
     },
     reducers: {
-        setEmptyStore(state) {
-            state.store = []
-        },
-        setItemsFromFirebase(state, action: PayloadAction<{ items: Array<ItemFromFireBaseType> }>) {
-            const newState = action.payload.items.map ( i => {
-                return {name: i.name, id: i.id, picUrl: '', priceRub: i.price * 100, text: i.description}
-            } )
-            state.store = newState
-        },
-        setItemFromFirebase(state, action: PayloadAction<{ item: ItemFromFireBaseType }>) {
-            const newProduct = {
-                name: action.payload.item.name,
-                id: action.payload.item.id,
-                picUrl: '',
-                priceRub: action.payload.item.price * 100,
-                text: action.payload.item.description
-            }
-            state.store.push ( newProduct )
-        },
+
         setItemsToCard(state, action: PayloadAction<{ items: Array<ItemInCardType> }>) {
             state.cardStore = action.payload.items
         },
@@ -84,8 +60,5 @@ export const {
     addItemToCard,
     deleteItemFromCard,
     setItemsToCard,
-    setItemsFromFirebase,
-    setItemFromFirebase,
-    setEmptyStore,
     deleteAllItemFromCard
 } = slice.actions

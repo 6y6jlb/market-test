@@ -2,8 +2,9 @@
 
 import {Button, Grid} from '@material-ui/core';
 import * as React from 'react';
-import {addItemToCard, ItemType} from "../../bll/card-reduxer";
 import {useDispatch} from "react-redux";
+import {addItemToCard} from "../../bll/cart-reducer";
+import {ItemType} from "../../bll/products-reducer";
 
 type Props = {
     item: ItemType

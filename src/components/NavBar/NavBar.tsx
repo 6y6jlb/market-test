@@ -5,39 +5,38 @@ import {NavLink} from 'react-router-dom';
 import {GOODS_ROUTE, LOGIN_ROUTE} from "../../utils/routes";
 import {useAuthState} from "react-firebase-hooks/auth";
 import firebase from "firebase";
-import {ItemInCardType, openModalCard} from "../../bll/card-reduxer";
 import {useDispatch, useSelector} from "react-redux";
-import {Card} from "../Card/Card";
 import {AppRootStateType} from "../../bll/store";
-import { calcTotalPrice } from '../../utils/utils-functions';
+import {calcTotalPrice} from '../../utils/utils-functions';
+import {Cart} from '../Cart/Cart';
+import {ItemInCardType, openModalCard} from "../../bll/cart-reducer";
 
 type Props = {};
 export const NavBar: React.FC<Props> = () => {
-    const isModalOpen = useSelector<AppRootStateType,boolean>(state=>state.card.isModalOpen)
-    const cardStore = useSelector<AppRootStateType,Array<ItemInCardType>>(state=>state.card.cardStore)
-    const dispatch = useDispatch()
-    const closeModal = ()=> {
-        dispatch ( openModalCard ( {value: false} ) )
-    }
-
+    const isModalOpen = useSelector<AppRootStateType, boolean> ( state => state.card.isModalOpen )
+    const cardStore = useSelector<AppRootStateType, Array<ItemInCardType>> ( state => state.card.cardStore )
+    const dispatch = useDispatch ()
     const auth = firebase.auth ()
     const [user, loading, error] = useAuthState ( auth )
 
-
-
-    const totalPrice = calcTotalPrice(cardStore)
-
+    const openModalCartWindow = () => {
+        dispatch ( openModalCard ( {value: true} ) )
+    }
+    const closeModal = () => {
+        dispatch ( openModalCard ( {value: false} ) )
+    }
+    const totalPrice = calcTotalPrice ( cardStore )
 
     return (
         <AppBar color={ "secondary" } position="static">
             <Toolbar>
-                <Modal style={{}}
-                       open={isModalOpen}
-                       onClose={closeModal}
+                <Modal style={ {} }
+                       open={ isModalOpen }
+                       onClose={ closeModal }
                        aria-labelledby="simple-modal-title"
                        aria-describedby="simple-modal-description"
                 >
-                    {<Card/>}
+                    { <Cart/> }
                 </Modal>
                 <Grid container justify={ "flex-start" } style={ {gap: '20px'} }>
 
@@ -49,10 +48,17 @@ export const NavBar: React.FC<Props> = () => {
                         <NavLink to={ LOGIN_ROUTE }>< Button variant={ 'outlined' }>Login</Button></NavLink>
                     }
                 </Grid>
-                {totalPrice>0&&<div style={ {position:"relative",right:-100,bottom:-10,fontSize:'0.8em',color:"black",zIndex:1,width:'100px'} }> {totalPrice} rub</div>}
-                <Button style={ {backgroundColor: 'rgb(255, 230, 242)'} } size={ 'large' } onClick={ () => {
-                    dispatch ( openModalCard ( {value: true} ) )
-                } } variant={ 'outlined' }>card</Button>
+                { totalPrice > 0 && <div style={ {
+                    position: "relative",
+                    right: -100,
+                    bottom: -10,
+                    fontSize: '0.8em',
+                    color: "black",
+                    zIndex: 1,
+                    width: '100px'
+                } }> { totalPrice } rub</div> }
+                <Button disabled={cardStore.length<1} style={ {backgroundColor: 'rgb(255, 230, 242)'} } size={ 'large' }
+                        onClick={ openModalCartWindow } variant={ 'outlined' }>cart</Button>
             </Toolbar>
         </AppBar>
     );

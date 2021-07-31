@@ -10,12 +10,7 @@ export const publicRoutes =[
     {
         path:LOGIN_ROUTE,
         Component: Login
-    },
-    {
-        path:GOODS_ROUTE,
-        Component: Goods
-    },
-
+    }
 ]
 
 export const privateRoutes =[

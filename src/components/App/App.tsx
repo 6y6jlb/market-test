@@ -6,8 +6,9 @@ import {BrowserRouter} from "react-router-dom";
 import AppRoute from "../AppRoute/AppRoute";
 import {useAuthState} from "react-firebase-hooks/auth";
 import firebase from "firebase";
-import {setEmptyStore, setItemFromFirebase} from "../../bll/card-reduxer";
+
 import {useDispatch} from "react-redux";
+import {setEmptyStore, setItemFromFirebase} from "../../bll/products-reducer";
 
 function App() {
     //loadState ()
@@ -22,7 +23,6 @@ function App() {
 
 
     useEffect ( () => {
-
         ref.on ( "child_added", function (data) {
                 const response = data.val ()
                 const newProduct = {...response, id: data.key}
