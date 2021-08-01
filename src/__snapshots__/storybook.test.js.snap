@@ -447,3 +447,436 @@ exports[`Storyshots Example/Page Logged Out 1`] = `
   </section>
 </article>
 `;
+
+exports[`Storyshots market App Example 1`] = `
+<div>
+  <header
+    className="MuiPaper-root MuiAppBar-root MuiAppBar-positionStatic MuiAppBar-colorSecondary MuiPaper-elevation4"
+  >
+    <div
+      className="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
+    >
+      <div
+        className="MuiGrid-root MuiGrid-container"
+        style={
+          Object {
+            "gap": "20px",
+          }
+        }
+      >
+        <a
+          aria-current={null}
+          href="/LOGIN"
+          onClick={[Function]}
+        >
+          <button
+            className="MuiButtonBase-root MuiButton-root MuiButton-outlined"
+            disabled={false}
+            onBlur={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            <span
+              className="MuiButton-label"
+            >
+              Login
+            </span>
+          </button>
+        </a>
+      </div>
+      <button
+        className="MuiButtonBase-root MuiButton-root MuiButton-outlined makeStyles-cartButton-2 MuiButton-outlinedSizeLarge MuiButton-sizeLarge"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        <span
+          className="MuiButton-label"
+        >
+          cart
+        </span>
+      </button>
+    </div>
+  </header>
+  <div
+    className="MuiContainer-root MuiContainer-maxWidthLg"
+  >
+    <div
+      className="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center MuiGrid-justify-content-xs-center"
+      style={
+        Object {
+          "height": 738,
+        }
+      }
+    >
+      <div
+        className="MuiCircularProgress-root MuiCircularProgress-colorSecondary MuiCircularProgress-indeterminate"
+        role="progressbar"
+        style={
+          Object {
+            "height": 40,
+            "width": 40,
+          }
+        }
+      >
+        <svg
+          className="MuiCircularProgress-svg"
+          viewBox="22 22 44 44"
+        >
+          <circle
+            className="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
+            cx={44}
+            cy={44}
+            fill="none"
+            r={20.2}
+            strokeWidth={3.6}
+            style={Object {}}
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots market Cart Example 1`] = `
+<div
+  className="MuiGrid-root makeStyles-cartRoot-3 MuiGrid-container MuiGrid-align-items-xs-center MuiGrid-justify-content-xs-space-around"
+>
+  <div
+    className="MuiGrid-root makeStyles-productsIsCart-4 MuiGrid-container MuiGrid-direction-xs-column MuiGrid-align-items-xs-center"
+  >
+    <div
+      className="MuiGrid-root makeStyles-productRoot-7 MuiGrid-container MuiGrid-align-items-xs-flex-start MuiGrid-justify-content-xs-space-around"
+    >
+      <img
+        alt="img"
+        className="makeStyles-imgInProduct-8"
+        src="https://via.placeholder.com/150"
+      />
+      <div
+        className="MuiGrid-root makeStyles-textBlock-9 MuiGrid-container MuiGrid-direction-xs-column"
+      >
+        <h4 />
+        <h5 />
+        <span />
+      </div>
+      <div
+        className="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-column MuiGrid-align-items-xs-center"
+        style={
+          Object {
+            "width": 15,
+          }
+        }
+      >
+        <div
+          className="makeStyles-incrementDecrementButton-10"
+          onClick={[Function]}
+        >
+          +
+        </div>
+        <div>
+           
+        </div>
+        <div
+          className="makeStyles-incrementDecrementButton-10"
+          onClick={[Function]}
+        >
+          -
+        </div>
+      </div>
+    </div>
+  </div>
+  <form
+    onSubmit={[Function]}
+    style={
+      Object {
+        "backgroundColor": "rgb(255, 230, 242)",
+        "height": "100%",
+        "padding": "20px",
+        "textAlign": "center",
+      }
+    }
+  >
+    <div
+      className="MuiFormControl-root MuiTextField-root"
+      onDragStart={[Function]}
+      onDrop={[Function]}
+    >
+      <div
+        className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
+        onClick={[Function]}
+      >
+        <input
+          aria-invalid={false}
+          autoFocus={false}
+          className="MuiInputBase-input MuiInput-input"
+          disabled={false}
+          name="name"
+          onAnimationStart={[Function]}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          required={false}
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+    <p
+      className="MuiFormHelperText-root"
+      id="name-helper-text"
+    >
+      john
+    </p>
+    <div
+      className="MuiFormControl-root MuiTextField-root"
+      onDragStart={[Function]}
+      onDrop={[Function]}
+    >
+      <div
+        className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
+        onClick={[Function]}
+      >
+        <input
+          aria-invalid={false}
+          autoFocus={false}
+          className="MuiInputBase-input MuiInput-input"
+          disabled={false}
+          name="surname"
+          onAnimationStart={[Function]}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          required={false}
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+    <p
+      className="MuiFormHelperText-root"
+      id="surname-helper-text"
+    >
+      Smith
+    </p>
+    <div
+      className="MuiFormControl-root MuiTextField-root"
+      onDragStart={[Function]}
+      onDrop={[Function]}
+    >
+      <div
+        className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
+        onClick={[Function]}
+      >
+        <input
+          aria-invalid={false}
+          autoFocus={false}
+          className="MuiInputBase-input MuiInput-input"
+          disabled={false}
+          name="email"
+          onAnimationStart={[Function]}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          required={false}
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+    <p
+      className="MuiFormHelperText-root"
+      id="address-helper-text"
+    >
+      We'll never share email address.
+    </p>
+    <div
+      className="MuiFormControl-root MuiTextField-root"
+      onDragStart={[Function]}
+      onDrop={[Function]}
+    >
+      <div
+        className="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl"
+        onClick={[Function]}
+      >
+        <input
+          aria-invalid={false}
+          autoFocus={false}
+          className="MuiInputBase-input MuiInput-input"
+          disabled={false}
+          name="phone"
+          onAnimationStart={[Function]}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          required={false}
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+    <p
+      className="MuiFormHelperText-root"
+      id="phone-helper-text"
+    >
+      We'll never share your phone.
+    </p>
+    <button
+      className="MuiButtonBase-root MuiButton-root MuiButton-text"
+      disabled={false}
+      onBlur={[Function]}
+      onDragLeave={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onSubmit={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      style={
+        Object {
+          "marginTop": 15,
+        }
+      }
+      tabIndex={0}
+      type="submit"
+    >
+      <span
+        className="MuiButton-label"
+      >
+        order
+      </span>
+    </button>
+  </form>
+</div>
+`;
+
+exports[`Storyshots market Login Example 1`] = `
+<div
+  className="MuiContainer-root MuiContainer-maxWidthLg"
+>
+  <div
+    className="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center MuiGrid-justify-content-xs-center"
+    style={
+      Object {
+        "height": 738,
+      }
+    }
+  >
+    <div
+      className="MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-center MuiGrid-justify-content-xs-center"
+      style={
+        Object {
+          "backgroundColor": "lightpink",
+          "width": 400,
+        }
+      }
+    >
+      <div
+        className="MuiBox-root MuiBox-root-11"
+      >
+        <button
+          className="MuiButtonBase-root MuiButton-root MuiButton-outlined"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          <span
+            className="MuiButton-label"
+          >
+            Войти с богом
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots market Product In Cart Example 1`] = `
+<div
+  className="MuiGrid-root makeStyles-productRoot-12 MuiGrid-container MuiGrid-align-items-xs-flex-start MuiGrid-justify-content-xs-space-around"
+>
+  <img
+    alt="img"
+    className="makeStyles-imgInProduct-13"
+    src="https://via.placeholder.com/150"
+  />
+  <div
+    className="MuiGrid-root makeStyles-textBlock-14 MuiGrid-container MuiGrid-direction-xs-column"
+  >
+    <h4>
+      name
+    </h4>
+    <h5>
+      lorem ipsum
+    </h5>
+    <span>
+      99
+    </span>
+  </div>
+  <div
+    className="MuiGrid-root MuiGrid-container MuiGrid-direction-xs-column MuiGrid-align-items-xs-center"
+    style={
+      Object {
+        "width": 15,
+      }
+    }
+  >
+    <div
+      className="makeStyles-incrementDecrementButton-15"
+      onClick={[Function]}
+    >
+      +
+    </div>
+    <div>
+       
+      1
+    </div>
+    <div
+      className="makeStyles-incrementDecrementButton-15"
+      onClick={[Function]}
+    >
+      -
+    </div>
+  </div>
+</div>
+`;

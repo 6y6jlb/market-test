@@ -17,7 +17,7 @@ type Props = {
     item: ItemInCardType
 
 };
-export const ProductInCard: React.FC<Props> = ({item}) => {
+export const ProductInCart: React.FC<Props> = ({item}) => {
     const classes = useStyles();
     const dispatch = useDispatch()
 

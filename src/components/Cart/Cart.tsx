@@ -4,7 +4,7 @@ import {Button, Grid, makeStyles} from "@material-ui/core";
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../../bll/store";
 
-import {ProductInCard} from "../PrdouctInCard/ProductInCard";
+import {ProductInCart} from "../PrdouctInCart/ProductInCart";
 import {calcTotalPrice} from "../../utils/utils-functions";
 import OrderForm, {OrderFormType} from "../OrderForm/OrderForm";
 import firebase from "firebase";
@@ -71,7 +71,7 @@ export const Cart: React.FC<Props> = () => {
         <Grid container alignItems={ "center" } justify={ "space-around" } className={ classes.cartRoot }>
             <Grid container direction={ "column" } alignItems={ "center" } className={ classes.productsIsCart }>
                 { !emptyCartError
-                    ? cartStore.map ( c => <ProductInCard key={ c.id } item={ c }/> )
+                    ? cartStore.map ( c => <ProductInCart key={ c.id } item={ c }/> )
                     : <div>{ emptyCartError }</div> }
 
             </Grid>
